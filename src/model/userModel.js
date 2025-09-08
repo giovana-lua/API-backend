@@ -36,8 +36,23 @@ const create = (newUser) => {
 
 }
 
+//Função para deletar um usuário
+const deleteUser = (id) =>{
+
+
+    //descobrir o index do elemento para exclui
+    const index = users.findIndex(user => user.id === id);
+
+    if(index !== -1){
+        const [deletedUser] = users.splice(index,1);
+        return deletedUser
+    }
+    return null
+ }
+
 module.exports ={
     findAll,
     findById,
-    create
+    create,
+    deleteUser
 }
