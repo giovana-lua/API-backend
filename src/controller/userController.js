@@ -66,9 +66,25 @@ const deleteUser = (req, res) => {
 
 }
 
+//Metodo do controlador para editar um usuário
+const updateUser = (req, res) => {
+
+    //1° passo pear os dados que foram enviados pelo body da requisição
+    const {id, name, email} = req.body;
+
+    if(!id) {
+        return res.status(400).json({mensagem: 'O id do usuário é obrigatório'});
+    }else{
+        const dataUser = userModel.updateUser({id, name, email});
+        res.status(200).json(dataUser);
+    }
+
+}
+
 module.exports = {
  getAllUsers,
  getUserById,
  createUser,
- deleteUser
+ deleteUser,
+ updateUser
 }

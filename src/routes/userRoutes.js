@@ -20,4 +20,9 @@ router.post('/',userController.createUser);
 router.delete('/:id', userController.deleteUser);
 
 
+//criando uma rota para Atualizar um usuario
+//localhost:8000/api/user/
+router.put('/',userController.updateUser);
+
+
 module.exports = router;
